@@ -39,3 +39,31 @@ function kumquat_core_locale_translation_projects_alter(&$projects) {
   ];
 }
 
+/**
+ * Implements hook_views_data().
+ */
+function kumquat_core_views_data() {
+  $data = [];
+  $data['views']['kumquat_facets'] = [
+    'title' => t('Facets'),
+    'help' => t('Shows facets.'),
+    'area' => [
+      'id' => 'kumquat_facets',
+    ],
+  ];
+  $data['views']['kumquat_facets_summary'] = [
+    'title' => t('Facets summary'),
+    'help' => t('Shows facets summary.'),
+    'area' => [
+      'id' => 'kumquat_facets_summary',
+    ],
+  ];
+  $data['views']['kumquat_result'] = [
+    'title' => t('Wrapped result summary'),
+    'help' => t('Shows result summary, for example the items per page wrapped in some markup.'),
+    'area' => [
+      'id' => 'kumquat_result',
+    ],
+  ];
+  return $data;
+}
