@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Implementation of the Kumquat Core module.
+ */
+
+use Drupal\kumquat_core\Helpers\PatternsHelper;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function kumquat_core_element_info_alter(array &$info) {
+  if (!empty($info['pattern'])) {
+    $info['pattern']['#pre_render'][] = [
+      PatternsHelper::class,
+      'handleOptionalFields',
+    ];
+    $info['pattern']['#pre_render'][] = [
+      PatternsHelper::class,
+      'handleMultipleFields',
+    ];
+    $info['pattern']['#pre_render'][] = [
+      PatternsHelper::class,
+      'handleBooleanFields',
+    ];
+  }
+}
