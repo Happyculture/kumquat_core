@@ -5,5 +5,12 @@
     "licence": "GPL-3.0-or-later",
     "suggest": {
         "happyculture/kumquat_gin": "Gin administration theme improvements"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9 || ^10"
+            }
+        }
     }
 }
