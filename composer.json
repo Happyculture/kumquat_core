@@ -1,0 +1,9 @@
+{
+    "name": "happyculture/kumquat_core",
+    "description": "Drupal module improving Dev Xp",
+    "type": "drupal-module",
+    "licence": "GPL-3.0-or-later",
+    "suggest": {
+        "happyculture/kumquat_gin": "Gin administration theme improvements"
+    }
+}
