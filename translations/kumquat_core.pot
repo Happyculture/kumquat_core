@@ -9,3 +9,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "Remove the \"@label\" filter"
+msgstr ""
+
+msgid "Remove the \"@label\" text filter"
+msgstr ""

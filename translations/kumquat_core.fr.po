@@ -11,3 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
+
+msgid "Remove the \"@label\" filter"
+msgstr "Retirer le filtre \"@label\""
+
+msgid "Remove the \"@label\" text filter"
+msgstr "Retirer le filtre textuel \"@label\""
