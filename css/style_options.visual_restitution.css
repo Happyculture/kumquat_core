@@ -1,0 +1,6 @@
+.wrapper-visual-restitution {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

@@ -1,0 +1,4 @@
+style_options.visual_restitution:
+  css:
+    component:
+      css/style_options.visual_restitution.css: {}
