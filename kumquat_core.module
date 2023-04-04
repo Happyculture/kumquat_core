@@ -26,3 +26,16 @@ function kumquat_core_element_info_alter(array &$info) {
     ];
   }
 }
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function kumquat_core_locale_translation_projects_alter(&$projects) {
+  $modulePath = \Drupal::moduleHandler()->getModule('kumquat_core')->getPath();
+  $projects['kumquat_core'] = [
+    'info' => [
+      'interface translation server pattern' => $modulePath . '/translations/%project.%language.po',
+    ],
+  ];
+}
+
