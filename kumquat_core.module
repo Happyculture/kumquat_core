@@ -5,6 +5,7 @@
  * Implementation of the Kumquat Core module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\kumquat_core\Helpers\PatternsHelper;
 
 /**
@@ -66,4 +67,20 @@ function kumquat_core_views_data() {
     ],
   ];
   return $data;
+}
+
+// ---- Kumquat Gin hook calls ----
+
+/**
+ * Implements hook_paragraphs_widget_actions_alter().
+ */
+function kumquat_core_paragraphs_widget_actions_alter(array &$widget_actions, array &$context) {
+  \Drupal::theme()->alter('paragraphs_widget_actions', $widget_actions, $context);
+}
+
+/**
+ * Implements hook_field_widget_complete_form_alter().
+ */
+function kumquat_core_field_widget_complete_form_alter(&$field_widget_complete_form, FormStateInterface $form_state, $context) {
+  \Drupal::theme()->alter('field_widget_complete_form', $field_widget_complete_form, $form_state, $context);
 }
