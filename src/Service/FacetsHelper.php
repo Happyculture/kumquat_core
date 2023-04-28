@@ -51,22 +51,44 @@ class FacetsHelper {
   /**
    * Class constructor.
    *
-   * @param \Drupal\facets\FacetManager\DefaultFacetManager $facet_manager
-   *   The facet plugin manager service.
-   * @param \Drupal\facets\FacetSource\FacetSourcePluginManager $facet_source_manager
-   *   The facet_source plugin manager service.
-   * @param \Drupal\facets\Utility\FacetsUrlGenerator $facets_url_generator
-   *   The facets URL generator utility service.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack service.
-   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
-   *   The date formatter service.
    */
-  public function __construct(DefaultFacetManager $facet_manager, FacetSourcePluginManager $facet_source_manager, FacetsUrlGenerator $facets_url_generator, RequestStack $request_stack) {
-    $this->facetManager = $facet_manager;
-    $this->facetSourceManager = $facet_source_manager;
-    $this->facetsUrlGenerator = $facets_url_generator;
+  public function __construct(RequestStack $request_stack) {
     $this->currentRequest = $request_stack->getCurrentRequest();
+  }
+
+  /**
+   * Facets plugin manager service setter.
+   *
+   * @param \Drupal\facets\FacetManager\DefaultFacetManager $facet_manager
+   *   The facet plugin manager service.
+   */
+  public function setFacetsManager(DefaultFacetManager $facet_manager) {
+    $this->facetManager = $facet_manager;
+    return $this;
+  }
+
+  /**
+   * Facets_source plugin manager service setter.
+   *
+   * @param \Drupal\facets\FacetSource\FacetSourcePluginManager $facet_source_manager
+   *   The facet_source plugin manager service.
+   */
+  public function setFacetsSourceManager(FacetSourcePluginManager $facet_source_manager) {
+    $this->facetSourceManager = $facet_source_manager;
+    return $this;
+  }
+
+  /**
+   * Facets URL generator utility service setter.
+   *
+   * @param \Drupal\facets\Utility\FacetsUrlGenerator $facets_url_generator
+   *   The facets URL generator utility service.
+   */
+  public function setFacetsUrlGenerator(FacetsUrlGenerator $facets_url_generator) {
+    $this->facetsUrlGenerator = $facets_url_generator;
+    return $this;
   }
 
   /**

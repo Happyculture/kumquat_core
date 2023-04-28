@@ -1,4 +1,8 @@
 services:
   kumquat_core.facets_helper:
     class: Drupal\kumquat_core\Service\FacetsHelper
-    arguments: ['@facets.manager', '@plugin.manager.facets.facet_source', '@facets.utility.url_generator', '@request_stack']
+    arguments: ['@request_stack']
+    calls:
+      - [setFacetsManager, ['@?facets.manager']]
+      - [setFacetsSourceManager, ['@?plugin.manager.facets.facet_source']]
+      - [setFacetsUrlGenerator, ['@?facets.utility.url_generator']]
