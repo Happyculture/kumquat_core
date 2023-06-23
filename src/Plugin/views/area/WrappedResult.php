@@ -18,7 +18,7 @@ class WrappedResult extends Result {
    */
   public function render($empty = FALSE) {
     $build = parent::render($empty);
-    if ($empty || empty($build)) {
+    if (empty($build)) {
       return [];
     }
 
