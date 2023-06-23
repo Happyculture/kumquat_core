@@ -36,7 +36,10 @@ class ViewMode extends StyleOptionPluginBase {
       '#title' => $this->getLabel(),
       '#default_value' => $this->getValue('view_mode') ?? $this->getDefaultValue(),
       '#wrapper_attributes' => [
-        'class' => ['wrapper-view-mode', $this->getConfiguration()['view_mode'] ?? ''],
+        'class' => [
+          'wrapper-view-mode',
+          $this->getConfiguration()['view_mode'] ?? '',
+        ],
       ],
       '#description' => $this->getConfiguration('description'),
       '#options' => $options,

@@ -65,7 +65,7 @@ class FacetsSummary extends Facets {
 
       $links = array_merge($links, $this->facetsHelper->generateDefaultFacetLinks($facet));
     }
-    // @Todo is the fulltext url key configurable in the handler options?
+    // @todo is the fulltext url key configurable in the handler options?
     // Add a link to remove the fulltext search if necessary.
     $links = array_merge($links, $this->facetsHelper->generateFulltextLinks('content'));
 

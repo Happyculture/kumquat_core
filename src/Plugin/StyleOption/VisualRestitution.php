@@ -47,13 +47,18 @@ class VisualRestitution extends StyleOptionPluginBase {
       '#title' => $this->getLabel(),
       '#default_value' => $this->getValue('visual_restitution') ?? $this->getDefaultValue(),
       '#wrapper_attributes' => [
-        'class' => ['wrapper-visual-restitution', $this->getConfiguration()['visual_restitution'] ?? ''],
+        'class' => [
+          'wrapper-visual-restitution',
+          $this->getConfiguration()['visual_restitution'] ?? '',
+        ],
       ],
       '#description' => $this->getConfiguration('description'),
       '#options' => $options,
-      '#attached' => ['library' => [
-        'kumquat_core/style_options.visual_restitution'
-      ]]
+      '#attached' => [
+        'library' => [
+          'kumquat_core/style_options.visual_restitution',
+        ],
+      ],
     ];
     return $form;
   }
@@ -63,7 +68,7 @@ class VisualRestitution extends StyleOptionPluginBase {
    */
   public function build(array $build) {
     $value = $this->getValue('visual_restitution') ?? NULL;
-    $class = $value?? NULL;
+    $class = $value ?? NULL;
     if (!empty($class)) {
       $build['#attributes']['class'][] = $class;
     }

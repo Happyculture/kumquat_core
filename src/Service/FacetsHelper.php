@@ -9,7 +9,6 @@ use Drupal\facets\FacetManager\DefaultFacetManager;
 use Drupal\facets\FacetSource\FacetSourcePluginManager;
 use Drupal\facets\Utility\FacetsUrlGenerator;
 use Drupal\search_api\Plugin\search_api\display\ViewsDisplayBase;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -128,11 +127,12 @@ class FacetsHelper {
    *
    * @param string $fulltext_url_key
    *   URL argument to extract the fulltext search content from.
-   * @param string $facet_filter_url_key (optional)
+   * @param string $facet_filter_url_key
    *   URL argument to extract the facets from.
-   *   Defaults to 'f'.
+   *   (optional) Defaults to 'f'.
    *
    * @return array
+   *   An array including one link if fulltext content is not empty.
    */
   public function generateFulltextLinks(string $fulltext_url_key, string $facet_filter_url_key = 'f') : array {
     $links = [];

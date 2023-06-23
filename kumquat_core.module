@@ -77,7 +77,10 @@ function kumquat_core_views_data() {
   return $data;
 }
 
-// ---- Kumquat Gin hook calls ----
+/**
+ * @addtogroup Kumquat Gin hook calls
+ * @{
+ */
 
 /**
  * Implements hook_paragraphs_widget_actions_alter().
@@ -92,3 +95,7 @@ function kumquat_core_paragraphs_widget_actions_alter(array &$widget_actions, ar
 function kumquat_core_field_widget_complete_form_alter(&$field_widget_complete_form, FormStateInterface $form_state, $context) {
   \Drupal::theme()->alter('field_widget_complete_form', $field_widget_complete_form, $form_state, $context);
 }
+
+/**
+ * @} End of "Kumquat Gin hook calls".
+ */

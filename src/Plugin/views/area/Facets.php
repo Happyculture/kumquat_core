@@ -2,11 +2,8 @@
 
 namespace Drupal\kumquat_core\Plugin\views\area;
 
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Entity\Facet;
-use Drupal\facets\FacetManager\DefaultFacetManager;
-use Drupal\search_api\Display\DisplayPluginManager;
 use Drupal\views\Plugin\views\area\AreaPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
