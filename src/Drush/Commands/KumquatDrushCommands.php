@@ -77,15 +77,18 @@ class KumquatDrushCommands extends DrushCommands {
     }
     $commit_msg = "Update $package to version $version.";
     $command = "git commit -m '" . strtr($commit_msg, "'", "\\'") . "'";
-    if (!empty($options['auto-commit']) || !empty($options['AC'])) {
-      $this->io()->section('Commiting changes.');
-      $process = $this->processManager()->shell($command);
-      $process->run($process->showRealtime());
-    }
-    else {
+
+    $autocommit = !empty($options['auto-commit']) || !empty($options['AC']);
+    if (!$autocommit) {
       $this->io()->section('Review time.');
       $this->io()->text('Check your git working space and commit using the following command:');
       $this->io()->text("$ $command");
+      $autocommit = $this->io()->confirm('…or do you want this to be commited for you?', FALSE);
+    }
+    if ($autocommit) {
+      $this->io()->section('Commiting changes.');
+      $process = $this->processManager()->shell($command);
+      $process->run($process->showRealtime());
     }
     $this->io()->newLine();
 
