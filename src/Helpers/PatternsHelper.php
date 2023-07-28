@@ -28,13 +28,25 @@ class PatternsHelper implements TrustedCallbackInterface {
       if (!empty($field->toArray()['optional']) && !empty($element['#context'])) {
 
         if (isset($element['#' . $field_name]) && is_array($element['#' . $field_name]) && ($entity = $element['#context']->getProperty('entity'))) {
-          foreach (array_keys($element['#' . $field_name]) as $entity_field_name) {
-            if ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) {
-              unset($element['#' . $field_name][$entity_field_name]);
+          $children = Element::children($element['#' . $field_name]);
+          if (!empty($children)) {
+            foreach ($children as $entity_field_name) {
+              if ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) {
+                unset($element['#' . $field_name][$entity_field_name]);
+              }
             }
           }
+          elseif (!empty($element['#' . $field_name]['#sources'])) {
+            foreach (array_keys($element['#' . $field_name]['#sources']) as $entity_field_name) {
+              if ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) {
+                unset($element['#' . $field_name][$entity_field_name]);
+              }
+            }
+          }
+          elseif (empty($element['#' . $field_name]['#theme']) && empty($element['#' . $field_name]['#type'])) {
+            unset($element['#' . $field_name]);
+          }
         }
-
       }
     }
 
