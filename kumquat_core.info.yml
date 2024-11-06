@@ -1,7 +1,7 @@
 name: Kumquat Core
 type: module
 description: 'Kumquat Core module'
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^8 || ^9 || ^10 || ^11
 
 interface translation project: kumquat_core
 interface translation server pattern: 'translations/%project.%language.po'
