@@ -25,7 +25,8 @@ class ViewMode extends StyleOptionPluginBase {
    */
   public function buildConfigurationForm(
     array $form,
-    FormStateInterface $form_state): array {
+    FormStateInterface $form_state,
+  ): array {
 
     $options = $this->getConfiguration()['options'];
     array_walk($options, function (&$option) {

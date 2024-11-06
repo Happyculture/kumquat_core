@@ -3,10 +3,8 @@
 namespace Drupal\kumquat_core\Plugin\paragraphs\Behavior;
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Theme\ThemeManager;
 use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
@@ -14,7 +12,7 @@ use Drupal\paragraphs\ParagraphsBehaviorBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @TODO doc
+ * Behavior to allow editors to choose the styles to apply to their paragraphs.
  *
  * @ParagraphsBehavior(
  *   id = "kumquat_style",
@@ -49,9 +47,13 @@ class StyleBehavior extends ParagraphsBehaviorBase {
   }
 
   /**
+   * List all available styles to be selected in the widget.
+   *
    * @param string $paragraph_type
+   *   The paragraph type on which the style might be applied.
    *
    * @return array
+   *   Array of styles names keyed by ID.
    */
   protected function getAvailableStyles(string $paragraph_type) {
     $styles = [];
