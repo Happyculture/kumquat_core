@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ccu_core\Plugin\Field\FieldFormatter;
+namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
