@@ -31,16 +31,27 @@ class PatternsHelper implements TrustedCallbackInterface {
           $children = Element::children($element['#' . $field_name]);
           if (!empty($children)) {
             foreach ($children as $entity_field_name) {
-              if ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) {
+              if (
+                ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) ||
+                (isset($element['#' . $field_name][$entity_field_name]['#access']) && empty($element['#' . $field_name][$entity_field_name]['#access']))
+              ) {
                 unset($element['#' . $field_name][$entity_field_name]);
               }
             }
           }
           elseif (!empty($element['#' . $field_name]['#sources'])) {
             foreach (array_keys($element['#' . $field_name]['#sources']) as $entity_field_name) {
-              if ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) {
+              if (
+                ($entity->hasField($entity_field_name) && $entity->{$entity_field_name}->isEmpty()) ||
+                (isset($element['#' . $field_name][$entity_field_name]['#access']) && empty($element['#' . $field_name][$entity_field_name]['#access']))
+              ) {
                 unset($element['#' . $field_name][$entity_field_name]);
+                unset($element['#' . $field_name]['#sources'][$entity_field_name]);
               }
+            }
+            // If there is no field left.
+            if (empty($element['#' . $field_name]['#sources'])) {
+              unset($element['#' . $field_name]);
             }
           }
           elseif (empty($element['#' . $field_name]['#theme']) && empty($element['#' . $field_name]['#type'])) {
