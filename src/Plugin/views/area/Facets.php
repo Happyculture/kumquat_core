@@ -4,14 +4,14 @@ namespace Drupal\kumquat_core\Plugin\views\area;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Entity\Facet;
+use Drupal\views\Attribute\ViewsArea;
 use Drupal\views\Plugin\views\area\AreaPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Display selected facets.
- *
- * @ViewsArea("kumquat_facets")
  */
+#[ViewsArea('kumquat_facets')]
 class Facets extends AreaPluginBase {
 
   /**

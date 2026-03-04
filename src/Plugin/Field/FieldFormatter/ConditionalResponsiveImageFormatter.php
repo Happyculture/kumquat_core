@@ -2,25 +2,23 @@
 
 namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Plugin implementation of the 'conditional_responsive_image' formatter.
  *
  * Allow to choose the responsive formatter to use based on conditions.
- *
- * @FieldFormatter(
- *   id = "conditional_responsive_image",
- *   label = @Translation("Conditional responsive image"),
- *   field_types = {
- *     "image"
- *   },
- *   quickedit = {
- *     "editor" = "image"
- *   }
- * )
  */
+#[FieldFormatter(
+  id: 'conditional_responsive_image',
+  label: new TranslatableMarkup('Conditional responsive image'),
+  field_types: [
+    'image',
+  ],
+)]
 class ConditionalResponsiveImageFormatter extends ConditionalResponsiveImageFormatterProxy {
 
   /**

@@ -2,23 +2,24 @@
 
 namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\text\Plugin\Field\FieldFormatter\TextTrimmedFormatter;
 
 /**
- * Override of the 'text_trimmed' formatter.
- *
- * @FieldFormatter(
- *   id = "text_trimmed_with_ellipsis",
- *   label = @Translation("Trimmed with ellipsis"),
- *   field_types = {
- *     'text',
- *     'text_long',
- *     'text_with_summary',
- *   },
- * )
+ * Plugin implementation of the 'text_trimmed_with_ellipsis' formatter.
  */
+#[FieldFormatter(
+  id: 'text_trimmed_with_ellipsis',
+  label: new TranslatableMarkup('Trimmed with ellipsis'),
+  field_types: [
+    'text',
+    'text_long',
+    'text_with_summary',
+  ],
+)]
 class TextTrimmedWithEllipsisFormatter extends TextTrimmedFormatter {
 
   /**

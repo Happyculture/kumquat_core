@@ -2,15 +2,15 @@
 
 namespace Drupal\kumquat_core\Plugin\views\area;
 
+use Drupal\views\Attribute\ViewsArea;
 use Drupal\views\Plugin\views\area\Result;
 
 /**
  * Views area handler to display some configurable result summary.
  *
  * @ingroup views_area_handlers
- *
- * @ViewsArea("kumquat_result")
  */
+#[ViewsArea('kumquat_result')]
 class WrappedResult extends Result {
 
   /**

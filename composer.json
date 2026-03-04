@@ -3,6 +3,9 @@
     "description": "Drupal module improving Dev Xp",
     "type": "drupal-module",
     "licence": "GPL-3.0-or-later",
+    "require": {
+        "php": ">=8.1"
+    },
     "suggest": {
         "happyculture/kumquat_gin": "Gin administration theme improvements"
     }

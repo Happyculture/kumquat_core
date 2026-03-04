@@ -2,20 +2,21 @@
 
 namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\datetime\Plugin\Field\FieldFormatter\DateTimeDefaultFormatter;
 
 /**
  * Plugin implementation of the "End date only" formatter.
- *
- * @FieldFormatter(
- *   id = "daterange_end_date_only",
- *   label = @Translation("End date only"),
- *   field_types = {
- *     "daterange"
- *   }
- * )
  */
+#[FieldFormatter(
+  id: 'daterange_end_date_only',
+  label: new TranslatableMarkup('End date only'),
+  field_types: [
+    'daterange',
+  ],
+)]
 class DaterangeEndDateOnlyFormatter extends DateTimeDefaultFormatter {
 
   /**

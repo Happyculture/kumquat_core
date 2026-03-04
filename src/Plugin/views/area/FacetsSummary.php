@@ -2,13 +2,13 @@
 
 namespace Drupal\kumquat_core\Plugin\views\area;
 
+use Drupal\views\Attribute\ViewsArea;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Display active facets.
- *
- * @ViewsArea("kumquat_facets_summary")
  */
+#[ViewsArea('kumquat_facets_summary')]
 class FacetsSummary extends Facets {
 
   /**

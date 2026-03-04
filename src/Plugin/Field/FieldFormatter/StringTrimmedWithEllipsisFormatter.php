@@ -2,19 +2,21 @@
 
 namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
- * Plugin implementation of the 'string_trimmed' formatter.
- *
- * @FieldFormatter(
- *   id = "string_trimmed_with_ellipsis",
- *   label = @Translation("Trimmed with ellipsis"),
- *   field_types = {
- *     "string",
- *   },
- * )
+ * Plugin implementation of the 'string_trimmed_with_ellipsis' formatter.
  */
+#[FieldFormatter(
+  id: 'string_trimmed_with_ellipsis',
+  label: new TranslatableMarkup('Trimmed with ellipsis'),
+  field_types: [
+    'string',
+    'string_long',
+  ],
+)]
 class StringTrimmedWithEllipsisFormatter extends TextTrimmedWithEllipsisFormatter {
 
   /**

@@ -5,7 +5,9 @@ namespace Drupal\kumquat_core\Plugin\paragraphs\Behavior;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Theme\ThemeManagerInterface;
+use Drupal\paragraphs\Attribute\ParagraphsBehavior;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
 use Drupal\paragraphs\ParagraphsBehaviorBase;
@@ -13,13 +15,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Behavior to allow editors to choose the styles to apply to their paragraphs.
- *
- * @ParagraphsBehavior(
- *   id = "kumquat_style",
- *   label = @Translation("Style"),
- *   description = @Translation("Allow editors to choose the style(s) to apply to their paragraphs."),
- * )
  */
+#[ParagraphsBehavior(
+  id: 'kumquat_style',
+  label: new TranslatableMarkup('Style'),
+  description: new TranslatableMarkup('Allow editors to choose the style(s) to apply to their paragraphs.'),
+)]
 class StyleBehavior extends ParagraphsBehaviorBase {
 
   /**

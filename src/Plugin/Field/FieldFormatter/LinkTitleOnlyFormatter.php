@@ -2,22 +2,23 @@
 
 namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Utility\Token;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'link_title_only' formatter.
- *
- * @FieldFormatter(
- *   id = "link_title_only",
- *   label = @Translation("Link title only"),
- *   field_types = {
- *     "link",
- *   },
- * )
  */
+#[FieldFormatter(
+  id: 'link_title_only',
+  label: new TranslatableMarkup('Link title only'),
+  field_types: [
+    'link',
+  ],
+)]
 class LinkTitleOnlyFormatter extends FormatterBase {
 
   /**
