@@ -1,0 +1,77 @@
+field.formatter.settings.conditional_responsive_image:
+  type: mapping
+  mapping:
+    responsive_image_style:
+      type: string
+    image_style:
+      type: string
+    image_link:
+      type: string
+    image_loading:
+      type: sequence
+      sequence:
+        type: ignore
+    svg_attributes:
+      type: sequence
+      sequence:
+        type: ignore
+    svg_render_as_image:
+      type: boolean
+    conditions:
+      type: sequence
+      sequence:
+        type: ignore
+
+field.formatter.settings.daterange_end_date_only:
+  type: field.formatter.settings.datetime_default
+
+field.formatter.settings.daterange_start_date_only:
+  type: field.formatter.settings.datetime_default
+
+field.formatter.settings.text_trimmed_with_ellipsis:
+  type: mapping
+  label: 'Trimmed text display format settings'
+  mapping:
+    trim_length:
+      type: integer
+      label: 'Trim length'
+    ellipsis:
+      type: string
+      label: 'Ellipsis character'
+
+field.formatter.settings.string_trimmed_with_ellipsis:
+  type: field.formatter.settings.text_trimmed_with_ellipsis
+
+views.area.kumquat_facets:
+  type: views_area
+  label: 'Wrapped Result'
+  mapping:
+    facets_source_id:
+      type: string
+      label: 'Facets source ID'
+    facets:
+      type: sequence
+      sequence:
+        type: mapping
+        label: 'Facet settings'
+        mapping:
+          enabled:
+            type: boolean
+            label: 'Facet is enabled'
+          weight:
+            type: integer
+            label: 'Facet display weight'
+    display_title:
+      type: boolean
+      label: 'Display the title'
+
+views.area.kumquat_facets_summary:
+  type: views.area.kumquat_facets
+
+views.area.kumquat_result:
+  type: views_area
+  label: 'Wrapped Result'
+  mapping:
+    content:
+      type: text
+      label: 'The shown text of the result summary area'
