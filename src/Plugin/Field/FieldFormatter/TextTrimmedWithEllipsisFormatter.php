@@ -4,12 +4,22 @@ namespace Drupal\kumquat_core\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\text\Plugin\Field\FieldFormatter\TextTrimmedFormatter as TextTrimmedFormatterAliasCore;
+use Drupal\text\Plugin\Field\FieldFormatter\TextTrimmedFormatter;
 
 /**
  * Override of the 'text_trimmed' formatter.
+ *
+ * @FieldFormatter(
+ *   id = "text_trimmed_with_ellipsis",
+ *   label = @Translation("Trimmed with ellipsis"),
+ *   field_types = {
+ *     'text',
+ *     'text_long',
+ *     'text_with_summary',
+ *   },
+ * )
  */
-class TextTrimmedFormatter extends TextTrimmedFormatterAliasCore {
+class TextTrimmedWithEllipsisFormatter extends TextTrimmedFormatter {
 
   /**
    * {@inheritdoc}

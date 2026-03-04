@@ -8,17 +8,14 @@ use Drupal\Core\Field\FieldItemListInterface;
  * Plugin implementation of the 'string_trimmed' formatter.
  *
  * @FieldFormatter(
- *   id = "string_trimmed",
- *   label = @Translation("Trimmed"),
+ *   id = "string_trimmed_with_ellipsis",
+ *   label = @Translation("Trimmed with ellipsis"),
  *   field_types = {
  *     "string",
  *   },
- *   quickedit = {
- *     "editor" = "plain_text"
- *   }
  * )
  */
-class StringTrimmedFormatter extends TextTrimmedFormatter {
+class StringTrimmedWithEllipsisFormatter extends TextTrimmedWithEllipsisFormatter {
 
   /**
    * {@inheritdoc}
@@ -32,7 +29,7 @@ class StringTrimmedFormatter extends TextTrimmedFormatter {
       $element += \Drupal::service('element_info')->getInfo($element['#type']);
       // Add the #pre_render callback that renders the text into a summary.
       $element['#pre_render'][] = [
-        StringTrimmedFormatter::class,
+        StringTrimmedWithEllipsisFormatter::class,
         'preRenderSummary',
       ];
       // Pass on the trim length to the #pre_render callback via a property.

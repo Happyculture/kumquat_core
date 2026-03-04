@@ -2,6 +2,7 @@
 
 * **[Kumquat Core](#intro)**
 * **[Installation](#installation)**
+* **[Upgrade from 1.x](#upgrade)**
 * **[Credits](#credits)**
 
 # <a name="intro"></a>Kumquat Core
@@ -14,6 +15,10 @@ projects.
 
 - `composer require happyculture/kumquat_core`
 - `drush en kumquat_core`
+
+# <a name="upgrade"></a>Upgrade from 1.x
+
+1. The `text_trimmed` and `string_trimmed` formatters have been respectively renamed `text_trimmed_with_ellipsis` and `string_trimmed_with_ellipsis`. You should search and replace those names in your configuration files.
 
 # <a name="credits"></a>Credits
 
